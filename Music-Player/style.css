@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(131,58,180);
+background: -moz-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+background: -webkit-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#833ab4",endColorstr="#fcb045",GradientType=1);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+#h1id{
+  color: #fff;
+}
+.music-container {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+  display: flex;
+  padding: 20px 30px;
+  position: relative;
+  margin: 100px 0;
+  z-index: 10;
+}
+
+.img-container {
+  position: relative;
+  width: 110px;
+}
+
+.img-container::after {
+  content: '';
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, 50%);
+}
+
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 110px;
+  width: inherit;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.action-btn {
+  background-color: #fff;
+  border: 0;
+  color: #dfdbdf;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+.action-btn.action-btn-big {
+  color: #cdc2d0;
+  font-size: 30px;
+}
+
+.action-btn:focus {
+  outline: 0;
+}
+
+.music-info {
+  background-color: rgba(246, 255, 72, 0.807);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {
+  margin: 0;
+}
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+.progress {
+  background-color: #fe8daa;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px; /* Space between music player and genre/artist cards */
+}
+
+/* Music Player Container */
+.music-player-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Search Container */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-container input {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  width: 300px; /* Longer search field */
+  outline: none;
+}
+
+.search-container i {
+  margin-left: -40px; /* Adjusted for longer search field */
+  font-size: 20px;
+  color: #888;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .genres-container, .artists-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-container input {
+    width: 250px; /* Adjust width for smaller screens */
+  }
+
+  .genre-card, .artist-card {
+    width: 100%; /* Cards take full width on smaller screens */
+  }
+
+  .genres-container, .artists-container {
+    grid-template-columns: 1fr; /* Single column grid for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .search-container input {
+    width: 200px; /* Further adjust width for very small screens */
+  }
+
+  .genres-container, .artists-container {
+    grid-template-columns: 1fr; /* Single column grid for very small screens */
+  }
+}
+/* Existing CSS */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.action-btn {
+  background-color: #fff;
+  border: 0;
+  color: #dfdbdf;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 10px; /* Adjust margin for additional buttons */
+}
+
+.action-btn.action-btn-big {
+  color: #cdc2d0;
+  font-size: 30px;
+}
+
+#volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fe8daa;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-top: -8px; /* Adjust this value to align the thumb with the track */
+}
+
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #dfdbdf;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  background: #dfdbdf;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+/* Mute Button State */
+#mute.active i {
+  color: #ff4f4f; /* Change color for active mute button */
+}
+
+/* Style for the volume slider */
+
+
+#volume:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+
+
+/* Style for the volume slider thumb */
+#volume::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Remove default appearance */
+  appearance: none; /* Remove default appearance */
+  width: 20px; /* Thumb width */
+  height: 20px; /* Thumb height */
+  background: #fe8daa; /* Thumb color */
+  cursor: pointer; /* Pointer cursor */
+  border-radius: 50%; /* Rounded thumb */
+  margin-top: -6px; /* Adjust this value to align the thumb with the track */
+}
+
+/* For Firefox */
+#volume::-moz-range-thumb {
+  width: 20px; /* Thumb width */
+  height: 20px; /* Thumb height */
+  background: #fe8daa; /* Thumb color */
+  cursor: pointer; /* Pointer cursor */
+  border-radius: 50%; /* Rounded thumb */
+}
+
+/* For Internet Explorer */
+#volume::-ms-thumb {
+  width: 20px; /* Thumb width */
+  height: 20px; /* Thumb height */
+  background: #fe8daa; /* Thumb color */
+  cursor: pointer; /* Pointer cursor */
+  border-radius: 50%; /* Rounded thumb */
+}
+
+/* Style for the track (background) */
+#volume::-webkit-slider-runnable-track {
+  height: 8px; /* Track height */
+  background: #ddd; /* Track color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+#volume::-moz-range-track {
+  height: 8px; /* Track height */
+  background: #ddd; /* Track color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+#volume::-ms-track {
+  height: 8px; /* Track height */
+  background: transparent; /* Track color */
+  border-color: transparent; /* Track color */
+  color: transparent; /* Track color */
+}
