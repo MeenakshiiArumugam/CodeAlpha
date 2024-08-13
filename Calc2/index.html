@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <!-- Link to the CSS file -->
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    </head>
+    <body>
+        <div class="calculator">
+            <input type="text" id="display" aria-live="polite" disabled>
+            <div class="buttons">
+                <!-- Memory Function Buttons -->
+                <button class="btn" data-action="MC">MC</button>
+                <button class="btn" data-action="MR">MR</button>
+                <button class="btn" data-action="M+">M+</button>
+                <button class="btn" data-action="M-">M-</button>
+    
+                <!-- Scientific Function Buttons -->
+                <button class="btn operator" data-action="sqrt">√</button>
+                <button class="btn operator" data-action="pow">x²</button>
+                <button class="btn operator" data-action="log">log</button>
+                <button class="btn operator" data-action="/">/</button>
+    
+                <!-- Number and Operator Buttons -->
+                <button class="btn number" data-number="7">7</button>
+                <button class="btn number" data-number="8">8</button>
+                <button class="btn number" data-number="9">9</button>
+                <button class="btn operator" data-action="*">*</button>
+    
+                <button class="btn number" data-number="4">4</button>
+                <button class="btn number" data-number="5">5</button>
+                <button class="btn number" data-number="6">6</button>
+                <button class="btn operator" data-action="-">-</button>
+    
+                <button class="btn number" data-number="1">1</button>
+                <button class="btn number" data-number="2">2</button>
+                <button class="btn number" data-number="3">3</button>
+                <button class="btn operator" data-action="+">+</button>
+    
+                <button class="btn zero" data-number="0">0</button>
+                <button class="btn" data-number=".">.</button>
+                <button class="btn equals" data-action="equals">=</button>
+                <button class="btn clear" data-action="clear">C</button>
+            </div>
+    
+            <div class="theme-switcher">
+                <button class="theme-btn">Dark Mode</button>
+            </div>
+        </div>
+    
+        <!-- Link to the JavaScript file -->
+        <script src="script.js"></script>
+    </body>
+    </html>
+    
